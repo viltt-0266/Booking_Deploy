@@ -1,0 +1,130 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-28 05:30-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: tour_booking/forms.py:5
+msgid "key search"
+msgstr "Từ khóa tìm kiếm"
+
+#: tour_booking/forms.py:6
+msgid "Minimum Price"
+msgstr "Giá từ"
+
+#: tour_booking/forms.py:7
+msgid "Maximum Price"
+msgstr "Đến"
+
+#: tour_booking/forms.py:8
+msgid "Start day"
+msgstr "Bắt đầu"
+
+#: tour_booking/forms.py:9
+msgid "End day"
+msgstr "Kết thúc"
+
+#: tour_booking/forms.py:10
+msgid "Address"
+msgstr "Địa điểm"
+
+#: tour_booking/templates/base_generic.html:8
+msgid "Booking Tour"
+msgstr "Đặt Tour"
+
+#: tour_booking/templates/login.html:9 tour_booking/templates/login.html:17
+#: tour_booking/templates/navbar.html:9
+msgid "Login"
+msgstr "Đăng nhập"
+
+#: tour_booking/templates/login.html:13
+msgid "User name:"
+msgstr "Tên đăng nhập"
+
+#: tour_booking/templates/login.html:15
+msgid "Password:"
+msgstr "Mật khẩu"
+
+#: tour_booking/templates/login.html:19
+msgid "Forgot password?"
+msgstr "Quên mật khẩu"
+
+#: tour_booking/templates/navbar.html:3
+msgid "Home"
+msgstr "Trang chủ"
+
+#: tour_booking/templates/navbar.html:4
+#: tour_booking/templates/tour_booking/tour_list.html:5
+#: tour_booking/templates/tour_booking/tour_list.html:24
+msgid "Tour List"
+msgstr "Danh sách Tour"
+
+#: tour_booking/templates/navbar.html:5
+msgid "About"
+msgstr "About"
+
+#: tour_booking/templates/navbar.html:7
+msgid "Logout"
+msgstr "Đăng xuất"
+
+#: tour_booking/templates/tour_booking/search_tour.html:5
+msgid "List Tour"
+msgstr "Danh sách Tour"
+
+#: tour_booking/templates/tour_booking/search_tour.html:9
+#: tour_booking/templates/tour_booking/tour_list.html:9
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: tour_booking/templates/tour_booking/search_tour.html:25
+#: tour_booking/templates/tour_booking/tour_list.html:25
+msgid "There are no tours available."
+msgstr "Hiện không có tour"
+
+#: tour_booking/templates/tour_booking/tour_detail.html:6
+msgid "Description:"
+msgstr "Mô tả"
+
+#: tour_booking/templates/tour_booking/tour_detail.html:7
+msgid "Price:"
+msgstr "Giá"
+
+#: tour_booking/templates/tour_booking/tour_detail.html:8
+msgid "Date:"
+msgstr "Ngày"
+
+#: tour_booking/templates/tour_booking/tour_detail.html:9
+msgid "Stars:"
+msgstr "Đánh giá"
+
+#: tour_booking/templates/tour_booking/tour_list.html:7
+#, fuzzy
+#| msgid "search by price"
+msgid "search tour"
+msgstr "Tìm kiếm"
+
+#: tour_booking/views.py:11
+msgid "Home Page"
+msgstr "Trang chủ"
+
+#~ msgid "search by price"
+#~ msgstr "Tìm theo giá"
+
+#, fuzzy
+#~| msgid "Price:"
+#~ msgid "Price"
+#~ msgstr "Giá"

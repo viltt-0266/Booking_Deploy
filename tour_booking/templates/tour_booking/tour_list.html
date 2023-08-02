@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{%load i18n%}
+
+{% block content %}
+  <h1>{% trans "List Tour"%}</h1>
+  <div class="form_search">
+  <form class= "form-inline mb-3" method="GET">
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary ml-2">{%trans "Search"%}</button>
+  </form>
+  </div>
+  <p>{{context}}</p>
+  {% if tour_list %}
+    <ul>
+      {% for tour in tour_list %}
+        <li>
+          <a href="{{ tour.get_absolute_url }}">{{ tour.name }}</a> - {{ tour.price }}
+        </li>
+        {% for image in tour.image_set.all %}
+          <img src="{{ image.image.url }}" alt="image_tour" class="mt-2" width="30%" height="20%">
+        {% endfor %}
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>{% trans "There are no tours available."%}</p>
+  {% endif %}
+{% endblock %}

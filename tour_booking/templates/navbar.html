@@ -1,0 +1,15 @@
+{% load i18n %}
+<ul class="nav nav-pills">
+  <li><a href="{% url 'index' %}">{% trans "Home" %}</a></li>
+  <li><a href="{% url 'search' %}">{% trans "Tour List" %}</a></li>
+  <li><a href="{% url 'index' %}">{% trans "About" %}</a></li>
+  {% if user.is_authenticated %}
+  {% if user.is_staff %}
+      <li><a href="{% url 'approve-tours' %}">{% trans "Phê duyệt Tours" %}</a></li>
+  {% endif %}
+  <li><a href="{% url 'list-bookings' %}">{% trans "Danh sách tour đã đặt" %}</a></li>
+  <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
+  {% else %}
+  <li><a href="{% url 'login' %}">{% trans "Login" %}</a></li>
+  {% endif %}
+</ul>

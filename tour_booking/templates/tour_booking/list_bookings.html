@@ -1,0 +1,45 @@
+{% extends 'base_generic.html' %}
+{% load i18n %}
+{% load static %}
+{% block content %}
+
+<p><h2>{% trans "Danh sách tour đã đặt" %}</h2></p>
+{% if bookings %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>{% trans "Tour" %}</th>
+        <th>{% trans "Ngày khởi hành" %}</th>
+        <th>{% trans "Ngày kết thúc" %}</th>
+        <th>{% trans "Số lượng người" %}</th>
+        <th>{% trans "Giá" %}</th>
+        <th>{% trans "Tình trạng" %}</th>
+        <th>{% trans "Xóa" %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for booking in bookings %}
+        <tr>
+          <td>{{ booking.tour.name }}</td>
+          <td>{{ booking.departure_date }}</td>
+          <td>{{ booking.end_date }}</td>
+          <td>{{ booking.number_of_people }}</td>
+          <td>{{ booking.price }}</td>
+          <td class="{% if booking.status == 'Pending' %}text-warning{% elif booking.status == 'Cancelled' %}text-danger{% elif booking.status == 'Confirmed' %}text-success{% endif %}">{{ booking.status }}</td>
+          <td>
+            {% if booking.status == 'Pending' %}
+              <form method="post">
+                {% csrf_token %}
+                <input type="hidden" name="booking_id" value="{{ booking.id }}">
+                <button type="submit" class="btn btn-danger">{% trans "Delete" %}</button>
+              </form>
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+  <p>{% trans "Bạn chưa có tour nào đã đặt." %}</p>
+{% endif %}
+{% endblock %}

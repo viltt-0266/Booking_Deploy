@@ -1,0 +1,144 @@
+.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+
+body, html {
+padding: 0;
+margin: 0;
+}
+
+
+
+body {
+background-color: #f1f3f6;
+font-family: Arial, sans-serif;
+}
+
+
+.login-body h1 {
+color: #51bea3;
+margin-top: 30px;
+}
+
+
+.login-body form {
+background-color: #f9f9f9;
+padding: 20px;
+border-radius: 5px;
+width: 300px;
+margin: 0 auto;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.login-body label {
+color: #51bea3;
+display: block;
+margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 10px;
+border: 1px solid #ccc;
+border-radius: 3px;
+}
+
+
+input[type="submit"] {
+background-color: #51bea3;
+color: #fff;
+border: none;
+padding: 10px 20px;
+cursor: pointer;
+border-radius: 3px;
+}
+
+input[type="submit"]:hover {
+background-color: #429d87;
+}
+
+.login-formp {
+color: red;
+}
+.test{
+color: #000000;
+}
+
+.login-body {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh; 
+}
+
+.login-form {
+width: 400px; 
+padding: 20px;
+background-color: #f1f3f6;
+}
+
+
+.nav {
+display: flex;
+justify-content: space-around;
+background-color: #51bea3;
+padding: 10px;
+width: 100%;
+}
+
+.nav a {
+color: #fff; 
+text-decoration: none; 
+font-size: 16px; 
+font-weight: bold; 
+font-family: Arial, sans-serif; 
+}
+
+.nav a:hover {
+color: #429d87; 
+}
+.nav_ul {
+padding: 0px;
+}
+
+.pending-booking {
+  background-color: yellow;
+  font-weight: bold;
+  border: 1px solid rgb(5, 5, 5); 
+}
+th {
+  margin:auto;
+}
+
+/* style.css */
+.text-warning {
+  color: #ffc107; /* Màu vàng cho trạng thái Pending */
+}
+
+.text-danger {
+  color: #dc3545; /* Màu đỏ cho trạng thái Cancelled */
+}
+
+.text-success {
+  color: #28a745; /* Màu xanh lá cho trạng thái Confirmed */
+
+}
+
+.approved-booking {
+  background-color: green;
+  color: white;
+  font-weight: bold;
+}
+
+/* CSS cho trạng thái Cancelled */
+.cancelled-booking {
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}

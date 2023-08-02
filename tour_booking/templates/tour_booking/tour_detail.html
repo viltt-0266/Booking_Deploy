@@ -1,0 +1,48 @@
+{% extends 'base_generic.html' %}
+{% load i18n %}
+
+{% block content %}
+  <div class="row">
+      <div class="col-md-5">
+        {% for image in tour.image_set.all %}
+        <p><p><img src="{{ image.image.url }}" alt="Tour Image" class="mt-2" width="80%" height="80%"></p></p>
+        {% endfor %}
+      </div>
+      <div  class="col-md-4">
+        <p><h2>{{ tour.name }}</h2></p>
+        <p>{% trans "Description:" %} {{ tour.description }}</p>
+        <p>{% trans "Price:" %} {{ tour.price }}</p>
+        <p>{% trans "Start Date:" %} {{ tour.start_date }}</p>
+        <p>{% trans "End Date:" %} {{ tour.end_date }}</p>
+        <p>{% trans "Stars:" %} {{ tour.calculate_stars }}</p> <!-- Hiển thị dấu sao -->
+      </div>
+      <div class="col-md-2">
+        <p><h2>Đặt tour</h2></p>
+        {% if error_message %}
+          <p style="color: red;">{{ error_message }}</p>
+        {% endif %}
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">{% trans "Book Tour" %}</button>
+        </form>
+      </div>
+  </div>
+  <p><h2>Comment</h2></p>
+  {% for comment in tour.rating_set.all %}
+    <h5>{{ comment.user.username }} - {{ comment.create_time }}</h5>
+    <p>{{ comment.get_star_rating }}</p>
+    <p>{{ comment.content }}</p>
+  {% endfor %}
+  {% if user.is_authenticated %}
+    <h2>Đánh giá và bình luận tour</h2>
+    {% if tour %}
+      <form method="post" action="{% url 'tour-rating-comment' tour.pk %}">
+        {% csrf_token %}
+        {{ rating_comment_form.as_p }}
+        <button type="submit">Gửi đánh giá và bình luận</button>
+      </form>
+    {% endif %}
+  {% endif %}
+{% endblock %}
+

@@ -1,0 +1,56 @@
+{% extends 'base_generic.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <p><h2>Phê duyệt và Hủy Đơn đặt Tour</h2></p>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <label for="action">Hành động:</label>
+        <select name="action" id="action">
+            <option value="approve">Phê duyệt</option>
+            <option value="cancel">Từ chối</option>
+            <option value="delete">Xóa</option>
+        </select>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tour</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Ngày khởi hành</th>
+                    <th>Ngày về</th>
+                    <th>Người đặt</th>
+                    <th>Trạng thái</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                    <tr>
+                        {% if booking.status == 'Pending' or booking.status == 'Cancelled' %}
+                            <td><input type="checkbox" name="selected_bookings" value="{{ booking.pk }}" /></td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        <td>{{ booking.tour.name }}</td>
+                        <td>{{ booking.price }}</td>
+                        <td>{{ booking.number_of_people }}</td>
+                        <td>{{ booking.departure_date }}</td>
+                        <td>{{ booking.end_date }}</td>
+                        <td>{{ booking.user.username }}</td>
+                        <td class="{% if booking.status == 'Pending' %}text-warning{% elif booking.status == 'Cancelled' %}text-danger{% elif booking.status == 'Confirmed' %}text-success{% endif %}">{{ booking.status }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <input type="submit" value="Thực hiện" />
+    </form>
+{% endblock %}
