@@ -19,7 +19,9 @@ SECRET_KEY = 'django-insecure-s5n+@ivixf2=377f)+0b%nexxy#ki19bum)8c+0h00sc8^rdgm
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+# Trong settings.py
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 DEBUG = True
 
 DATABASE_URL = 'mysql://root:22102002@localhost:3306/my_booking'
