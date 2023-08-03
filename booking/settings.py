@@ -27,10 +27,12 @@ DEBUG = True
 #DATABASE_URL = 'mysql://root:22102002@localhost:3306/my_booking'
 
 ALLOWED_HOSTS = ["web-vivivideploy.up.railway.app",'https://*.127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ["https://web-vivivideploy.up.railway.app/",'https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ["https://web-vivivideploy.up.railway.app",'https://*.127.0.0.1']
 
 CORS_ALLOWED_ORIGINS = [
-    "https://web-vivivideploy.up.railway.app/",]
+    "https://web-vivivideploy.up.railway.app",
+    # Add other trusted origins here if needed
+]
 
 # Application definition
 
