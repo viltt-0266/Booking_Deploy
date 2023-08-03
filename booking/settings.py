@@ -24,7 +24,7 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 DEBUG = True
 
-DATABASE_URL = 'mysql://root:22102002@localhost:3306/my_booking'
+#DATABASE_URL = 'mysql://root:22102002@localhost:3306/my_booking'
 
 ALLOWED_HOSTS = ["web-vivivideploy.up.railway.app",'https://*.127.0.0.1']
 CSRF_TRUSTED_ORIGINS = ["https://web-vivivideploy.up.railway.app/",'https://*.127.0.0.1']
@@ -84,15 +84,10 @@ WSGI_APPLICATION = 'booking.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-import pymysql
-pymysql.install_as_MySQLdb()
-
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "OPTIONS": {
-            "read_default_file": "./my.cnf",
-        },
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -161,3 +156,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Định nghĩa URL để truy cập vào phương tiện (MEDIA_URL)
 MEDIA_URL = '/media/'
 
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
