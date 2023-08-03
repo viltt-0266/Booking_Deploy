@@ -156,12 +156,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Định nghĩa URL để truy cập vào phương tiện (MEDIA_URL)
 MEDIA_URL = '/media/'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = '587'  # Thay 'your_email_host' bằng địa chỉ SMTP server của bạn
-EMAIL_PORT = '587'  # Thay 'your_email_port' bằng cổng của SMTP server của bạn (thường là 587 hoặc 465)
-EMAIL_USE_TLS = True  # Hoặc EMAIL_USE_SSL = True nếu sử dụng SSL
-EMAIL_HOST_USER = 'tuongvi01679709@gmail.com'  # Thay 'your_email_username' bằng tên đăng nhập của email server của bạn
-EMAIL_HOST_PASSWORD = 'lethituongvi'  # Thay 'your_email_password' bằng mật khẩu của email server của bạn
-
-# settings.py
-AUTH_USER_MODEL = 'auth.User'

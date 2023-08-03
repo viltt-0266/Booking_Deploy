@@ -45,7 +45,7 @@ class Tour(models.Model):
             return "★★☆☆☆"
         else:
             return "★☆☆☆☆"
-    
+#######################    
     def has_pending_booking(self):
         return self.booking_set.filter(status='Pending').exists()
 
@@ -90,12 +90,14 @@ class Booking(models.Model):
 class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tour = models.ForeignKey(Tour, on_delete=models.CASCADE)
+############
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+##########
     content = models.TextField()
     create_time = models.DateTimeField(auto_now_add=True)
-
+###################
     def get_star_rating(self):
         return "★" * self.rating
-
+#####################
     def __str__(self):
         return f"{self.user.username} - {self.tour.name} - {self.rating}"

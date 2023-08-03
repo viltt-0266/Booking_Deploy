@@ -13,6 +13,7 @@ class TourAmin(admin.ModelAdmin):
 
 admin.site.register(Tour, TourAmin)
 
+#########################
 
 class BookingAmin(admin.ModelAdmin):
     list_display = ('tour', 'user', 'status', 'created_at', 'departure_date')

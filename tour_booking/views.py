@@ -128,7 +128,13 @@ def search_view(request):
     }
     return render(request, 'tour_booking/tour_list.html', context)
 
-    
+
+
+
+
+
+
+
 #Comment
 
 @login_required
@@ -171,14 +177,7 @@ def approve_tours(request):
         if action == 'approve':
             Booking.objects.filter(pk__in=selected_bookings).update(is_approved=True, status='Confirmed')
         elif action == 'cancel':
-            bookings_to_cancel = Booking.objects.filter(pk__in=selected_bookings, status__in=['Pending', 'Confirmed'])
-            for booking in bookings_to_cancel:
-                if booking.status == 'Confirmed':
-                    # Nếu đơn đã được xác nhận thì không cho phép hủy
-                    continue
-                booking.is_cancelled = True
-                booking.status = 'Cancelled'
-                booking.save()
+            Booking.objects.filter(pk__in=selected_bookings, status='Pending').update(is_cancelled=True, status='Cancelled')
         elif action == 'delete':
             bookings_to_delete = Booking.objects.filter(pk__in=selected_bookings)
             confirmed_or_pending_bookings = bookings_to_delete.filter(status__in=['Pending', 'Confirmed'])

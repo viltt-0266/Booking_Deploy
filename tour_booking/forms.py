@@ -19,7 +19,7 @@ class BookingForm(forms.ModelForm):
             'departure_date': forms.DateInput(attrs={'type': 'date'}),
             'end_date': forms.DateInput(attrs={'type': 'date'}),  # Tùy chỉnh widget cho trường 'end_date'
         }
-
+######################
 from django import forms
 from .models import Rating
 from django.core.validators import MinValueValidator, MaxValueValidator
